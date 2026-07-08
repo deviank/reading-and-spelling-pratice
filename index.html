@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading & Spelling Buddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Reading and Spelling Buddy home">
+        <span class="brand-mark">Aa</span>
+        <span>Reading Buddy</span>
+      </a>
+      <div class="nav-links">
+        <a href="#read">Read</a>
+        <a href="#spell">Spell</a>
+        <a href="#words">Words</a>
+        <a href="#progress">Progress</a>
+      </div>
+    </nav>
+
+    <section id="top" class="hero-grid">
+      <div>
+        <p class="eyebrow">Daily practice for ages 8-10</p>
+        <h1>Build reading confidence one word at a time.</h1>
+        <p class="hero-copy">
+          Short reading passages, friendly spelling rounds, and encouraging progress
+          tracking for a 9 year old learner.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#read">Start Reading</a>
+          <a class="button secondary" href="#spell">Try Spelling</a>
+        </div>
+      </div>
+
+      <aside class="daily-card" aria-label="Today's practice target">
+        <span class="card-icon">*</span>
+        <h2>Today's Goal</h2>
+        <p>Read 1 story, spell 10 words, and celebrate every improvement.</p>
+        <div class="mini-stats">
+          <span><strong id="dailyWords">0</strong> words</span>
+          <span><strong id="dailyScore">0</strong>% score</span>
+        </div>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <section id="read" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Reading practice</p>
+        <h2>Read, understand, and answer.</h2>
+      </div>
+
+      <div class="practice-layout">
+        <article class="panel story-panel">
+          <div class="panel-header">
+            <div>
+              <span class="tag" id="storyLevel">Level 1</span>
+              <h3 id="storyTitle">The Clever Fox</h3>
+            </div>
+            <button class="button small" id="newStoryButton" type="button">New Story</button>
+          </div>
+          <p class="story-text" id="storyText"></p>
+          <button class="button secondary" id="readAloudButton" type="button">Read Aloud</button>
+        </article>
+
+        <article class="panel">
+          <h3>Comprehension Check</h3>
+          <p id="questionText"></p>
+          <div id="answerOptions" class="answer-options"></div>
+          <p class="feedback" id="readingFeedback" role="status" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="spell" class="section accent-section">
+      <div class="section-heading">
+        <p class="eyebrow">Spelling practice</p>
+        <h2>Listen, type, and learn.</h2>
+      </div>
+
+      <div class="practice-layout">
+        <article class="panel spelling-card">
+          <div class="word-clue">
+            <span class="tag" id="wordDifficulty">Practice Word</span>
+            <p id="wordClue">Press "Hear Word" to begin.</p>
+          </div>
+          <div class="spelling-controls">
+            <button class="button secondary" id="speakWordButton" type="button">Hear Word</button>
+            <button class="button secondary" id="showHintButton" type="button">Show Hint</button>
+          </div>
+          <label for="spellingInput">Type the word</label>
+          <div class="input-row">
+            <input id="spellingInput" autocomplete="off" spellcheck="false" type="text" placeholder="Your answer">
+            <button class="button primary" id="checkSpellingButton" type="button">Check</button>
+          </div>
+          <p class="hint" id="spellingHint"></p>
+          <p class="feedback" id="spellingFeedback" role="status" aria-live="polite"></p>
+        </article>
+
+        <article class="panel">
+          <h3>Practice Tips</h3>
+          <ul class="tips-list">
+            <li>Say the word slowly.</li>
+            <li>Break it into syllables.</li>
+            <li>Look for tricky letter groups.</li>
+            <li>Try again before peeking.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="words" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Word bank</p>
+        <h2>Useful words to master.</h2>
+      </div>
+      <div class="word-bank" id="wordBank"></div>
+    </section>
+
+    <section id="progress" class="section progress-section">
+      <div class="section-heading">
+        <p class="eyebrow">Progress</p>
+        <h2>Small wins add up.</h2>
+      </div>
+      <div class="progress-grid">
+        <div class="stat-card">
+          <span id="storiesCompleted">0</span>
+          <p>reading checks completed</p>
+        </div>
+        <div class="stat-card">
+          <span id="wordsPracticed">0</span>
+          <p>spelling words practiced</p>
+        </div>
+        <div class="stat-card">
+          <span id="correctAnswers">0</span>
+          <p>correct answers</p>
+        </div>
+      </div>
+      <button class="button secondary danger" id="resetProgressButton" type="button">Reset Progress</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made for patient practice, encouragement, and steady confidence.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
