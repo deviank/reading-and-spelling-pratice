@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff8ef">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Reading Buddy">
   <title>Reading & Spelling Buddy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,40 +15,46 @@
 </head>
 <body>
   <header class="hero">
-    <nav class="topbar" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Reading and Spelling Buddy home">
+    <nav class="topbar" data-i18n-aria="navAria" aria-label="Main navigation">
+      <a class="brand" href="#top" data-i18n-aria="brandAria" aria-label="Reading and Spelling Buddy home">
         <span class="brand-mark">Aa</span>
-        <span>Reading Buddy</span>
+        <span data-i18n="brand">Reading Buddy</span>
       </a>
-      <div class="nav-links">
-        <a href="#read">Read</a>
-        <a href="#spell">Spell</a>
-        <a href="#words">Words</a>
-        <a href="#progress">Progress</a>
+      <div class="nav-end">
+        <div class="nav-links">
+          <a href="#read" data-i18n="navRead">Read</a>
+          <a href="#spell" data-i18n="navSpell">Spell</a>
+          <a href="#words" data-i18n="navWords">Words</a>
+          <a href="#progress" data-i18n="navProgress">Progress</a>
+        </div>
+        <div class="lang-switch" role="group" data-i18n-aria="langAria" aria-label="Language">
+          <button type="button" class="lang-button is-active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-button" data-lang="af" aria-pressed="false">AF</button>
+        </div>
       </div>
     </nav>
 
     <section id="top" class="hero-grid">
       <div>
-        <p class="eyebrow">Daily practice for ages 8-10</p>
-        <h1>Build reading confidence one word at a time.</h1>
-        <p class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">Daily practice for ages 8-10</p>
+        <h1 data-i18n="heroTitle">Build reading confidence one word at a time.</h1>
+        <p class="hero-copy" data-i18n="heroCopy">
           Short reading passages, friendly spelling rounds, and encouraging progress
           tracking for a 9 year old learner.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#read">Start Reading</a>
-          <a class="button secondary" href="#spell">Try Spelling</a>
+          <a class="button primary" href="#read" data-i18n="startReading">Start Reading</a>
+          <a class="button secondary" href="#spell" data-i18n="trySpelling">Try Spelling</a>
         </div>
       </div>
 
-      <aside class="daily-card" aria-label="Today's practice target">
+      <aside class="daily-card" data-i18n-aria="dailyCardAria" aria-label="Today's practice target">
         <span class="card-icon">*</span>
-        <h2>Today's Goal</h2>
-        <p>Read 1 story, spell 10 words, and celebrate every improvement.</p>
+        <h2 data-i18n="todayGoal">Today's Goal</h2>
+        <p data-i18n="todayGoalText">Read 1 story, spell 10 words, and celebrate every improvement.</p>
         <div class="mini-stats">
-          <span><strong id="dailyWords">0</strong> words</span>
-          <span><strong id="dailyScore">0</strong>% score</span>
+          <span><strong id="dailyWords">0</strong> <span data-i18n="dailyWordsLabel">words</span></span>
+          <span><strong id="dailyScore">0</strong> <span data-i18n="dailyScoreLabel">% score</span></span>
         </div>
       </aside>
     </section>
@@ -53,8 +63,8 @@
   <main>
     <section id="read" class="section">
       <div class="section-heading">
-        <p class="eyebrow">Reading practice</p>
-        <h2>Read, understand, and answer.</h2>
+        <p class="eyebrow" data-i18n="readEyebrow">Reading practice</p>
+        <h2 data-i18n="readTitle">Read, understand, and answer.</h2>
       </div>
 
       <div class="practice-layout">
@@ -64,14 +74,14 @@
               <span class="tag" id="storyLevel">Level 1</span>
               <h3 id="storyTitle">The Clever Fox</h3>
             </div>
-            <button class="button small" id="newStoryButton" type="button">New Story</button>
+            <button class="button small" id="newStoryButton" type="button" data-i18n="newStory">New Story</button>
           </div>
           <p class="story-text" id="storyText"></p>
-          <button class="button secondary" id="readAloudButton" type="button">Read Aloud</button>
+          <button class="button secondary" id="readAloudButton" type="button" data-i18n="readAloud">Read Aloud</button>
         </article>
 
         <article class="panel">
-          <h3>Comprehension Check</h3>
+          <h3 data-i18n="comprehension">Comprehension Check</h3>
           <p id="questionText"></p>
           <div id="answerOptions" class="answer-options"></div>
           <p class="feedback" id="readingFeedback" role="status" aria-live="polite"></p>
@@ -81,8 +91,8 @@
 
     <section id="spell" class="section accent-section">
       <div class="section-heading">
-        <p class="eyebrow">Spelling practice</p>
-        <h2>Listen, type, and learn.</h2>
+        <p class="eyebrow" data-i18n="spellEyebrow">Spelling practice</p>
+        <h2 data-i18n="spellTitle">Listen, type, and learn.</h2>
       </div>
 
       <div class="practice-layout">
@@ -92,25 +102,25 @@
             <p id="wordClue">Press "Hear Word" to begin.</p>
           </div>
           <div class="spelling-controls">
-            <button class="button secondary" id="speakWordButton" type="button">Hear Word</button>
-            <button class="button secondary" id="showHintButton" type="button">Show Hint</button>
+            <button class="button secondary" id="speakWordButton" type="button" data-i18n="hearWord">Hear Word</button>
+            <button class="button secondary" id="showHintButton" type="button" data-i18n="showHint">Show Hint</button>
           </div>
-          <label for="spellingInput">Type the word</label>
+          <label for="spellingInput" data-i18n="typeWord">Type the word</label>
           <div class="input-row">
-            <input id="spellingInput" autocomplete="off" spellcheck="false" type="text" placeholder="Your answer">
-            <button class="button primary" id="checkSpellingButton" type="button">Check</button>
+            <input id="spellingInput" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" inputmode="text" type="text" data-i18n-placeholder="yourAnswer" placeholder="Your answer">
+            <button class="button primary" id="checkSpellingButton" type="button" data-i18n="check">Check</button>
           </div>
           <p class="hint" id="spellingHint"></p>
           <p class="feedback" id="spellingFeedback" role="status" aria-live="polite"></p>
         </article>
 
         <article class="panel">
-          <h3>Practice Tips</h3>
+          <h3 data-i18n="tipsTitle">Practice Tips</h3>
           <ul class="tips-list">
-            <li>Say the word slowly.</li>
-            <li>Break it into syllables.</li>
-            <li>Look for tricky letter groups.</li>
-            <li>Try again before peeking.</li>
+            <li data-i18n="tip1">Say the word slowly.</li>
+            <li data-i18n="tip2">Break it into syllables.</li>
+            <li data-i18n="tip3">Look for tricky letter groups.</li>
+            <li data-i18n="tip4">Try again before peeking.</li>
           </ul>
         </article>
       </div>
@@ -118,38 +128,57 @@
 
     <section id="words" class="section">
       <div class="section-heading">
-        <p class="eyebrow">Word bank</p>
-        <h2>Useful words to master.</h2>
+        <p class="eyebrow" data-i18n="wordsEyebrow">Word bank</p>
+        <h2 data-i18n="wordsTitle">Useful words to master.</h2>
       </div>
       <div class="word-bank" id="wordBank"></div>
     </section>
 
     <section id="progress" class="section progress-section">
       <div class="section-heading">
-        <p class="eyebrow">Progress</p>
-        <h2>Small wins add up.</h2>
+        <p class="eyebrow" data-i18n="progressEyebrow">Progress</p>
+        <h2 data-i18n="progressTitle">Small wins add up.</h2>
       </div>
       <div class="progress-grid">
         <div class="stat-card">
           <span id="storiesCompleted">0</span>
-          <p>reading checks completed</p>
+          <p data-i18n="statStories">reading checks completed</p>
         </div>
         <div class="stat-card">
           <span id="wordsPracticed">0</span>
-          <p>spelling words practiced</p>
+          <p data-i18n="statWords">spelling words practiced</p>
         </div>
         <div class="stat-card">
           <span id="correctAnswers">0</span>
-          <p>correct answers</p>
+          <p data-i18n="statCorrect">correct answers</p>
         </div>
       </div>
-      <button class="button secondary danger" id="resetProgressButton" type="button">Reset Progress</button>
+      <button class="button secondary danger" id="resetProgressButton" type="button" data-i18n="resetProgress">Reset Progress</button>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Made for patient practice, encouragement, and steady confidence.</p>
+    <p data-i18n="footer">Made for patient practice, encouragement, and steady confidence.</p>
   </footer>
+
+  <nav class="dock" data-i18n-aria="navAria" aria-label="Main navigation">
+    <a class="dock-link" href="#read">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5V5.5Zm16 0A2.5 2.5 0 0 0 17.5 3H13v16h4.5A2.5 2.5 0 0 1 20 21.5V5.5Z"/></svg>
+      <span data-i18n="navRead">Read</span>
+    </a>
+    <a class="dock-link" href="#spell">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4.2L18.4 9.8l-4.2-4.2L4 15.8V20Zm15.7-12.3 1.4-1.4a1.5 1.5 0 0 0 0-2.1l-2.3-2.3a1.5 1.5 0 0 0-2.1 0l-1.4 1.4 4.4 4.4Z"/></svg>
+      <span data-i18n="navSpell">Spell</span>
+    </a>
+    <a class="dock-link" href="#words">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h6v6H5V4Zm8 0h6v6h-6V4ZM5 14h6v6H5v-6Zm8 0h6v6h-6v-6Z"/></svg>
+      <span data-i18n="navWords">Words</span>
+    </a>
+    <a class="dock-link" href="#progress">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 14.5 9h6.1l-4.9 3.8 1.9 6-4.6-3.4L8.4 18.8l1.9-6L5.4 9h6.1L12 3.2Z"/></svg>
+      <span data-i18n="navProgress">Progress</span>
+    </a>
+  </nav>
 
   <script src="app.js"></script>
 </body>
