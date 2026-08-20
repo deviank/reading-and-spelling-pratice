@@ -3,21 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#fff8ef">
+  <meta name="theme-color" content="#ffe8b8">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Reading Buddy">
   <title>Reading & Spelling Buddy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="sunburst" aria-hidden="true"></div>
+  <div class="pattern-band" aria-hidden="true"></div>
+  <div id="celebrate" class="celebrate" aria-hidden="true"></div>
+
   <header class="hero">
     <nav class="topbar" data-i18n-aria="navAria" aria-label="Main navigation">
       <a class="brand" href="#top" data-i18n-aria="brandAria" aria-label="Reading and Spelling Buddy home">
-        <span class="brand-mark">Aa</span>
+        <span class="brand-mark" aria-hidden="true">Aa</span>
         <span data-i18n="brand">Reading Buddy</span>
       </a>
       <div class="nav-end">
@@ -37,26 +41,57 @@
     <section id="top" class="hero-grid">
       <div>
         <p class="eyebrow" data-i18n="heroEyebrow">Daily practice for ages 8-10</p>
-        <h1 data-i18n="heroTitle">Build reading confidence one word at a time.</h1>
+        <h1 data-i18n="heroTitle">Come practise and become a word champ.</h1>
         <p class="hero-copy" data-i18n="heroCopy">
-          Short reading passages, friendly spelling rounds, and encouraging progress
-          tracking for a 9 year old learner.
+          Short South African stories, spelling games, and a big high-five for every win.
         </p>
+        <div class="sticker-row">
+          <span class="sticker" data-i18n="stickerSa">Made for SA kids</span>
+          <span class="sticker sticker-alt" data-i18n="stickerLang">English + Afrikaans</span>
+          <span class="sticker sticker-sun" data-i18n="stickerWin">Lekker wins</span>
+        </div>
         <div class="hero-actions">
           <a class="button primary" href="#read" data-i18n="startReading">Start Reading</a>
           <a class="button secondary" href="#spell" data-i18n="trySpelling">Try Spelling</a>
         </div>
       </div>
 
-      <aside class="daily-card" data-i18n-aria="dailyCardAria" aria-label="Today's practice target">
-        <span class="card-icon">*</span>
-        <h2 data-i18n="todayGoal">Today's Goal</h2>
-        <p data-i18n="todayGoalText">Read 1 story, spell 10 words, and celebrate every improvement.</p>
-        <div class="mini-stats">
-          <span><strong id="dailyWords">0</strong> <span data-i18n="dailyWordsLabel">words</span></span>
-          <span><strong id="dailyScore">0</strong> <span data-i18n="dailyScoreLabel">% score</span></span>
+      <div class="hero-art">
+        <div class="mascot-wrap" aria-hidden="true">
+          <svg class="mascot-svg" viewBox="0 0 220 240">
+            <circle cx="176" cy="42" r="30" fill="#F4C430"/>
+            <circle cx="176" cy="42" r="18" fill="#FFE28A"/>
+            <ellipse cx="110" cy="184" rx="54" ry="40" fill="#C56A2D"/>
+            <ellipse cx="110" cy="188" rx="30" ry="26" fill="#F6D7B0"/>
+            <ellipse cx="110" cy="96" rx="46" ry="54" fill="#D88946"/>
+            <ellipse cx="74" cy="50" rx="15" ry="24" fill="#D88946"/>
+            <ellipse cx="146" cy="50" rx="15" ry="24" fill="#D88946"/>
+            <ellipse cx="74" cy="52" rx="7" ry="13" fill="#8B4320"/>
+            <ellipse cx="146" cy="52" rx="7" ry="13" fill="#8B4320"/>
+            <ellipse cx="110" cy="118" rx="24" ry="17" fill="#F6D7B0"/>
+            <ellipse cx="110" cy="112" rx="9" ry="7" fill="#3A2418"/>
+            <circle cx="93" cy="90" r="9" fill="#3A2418"/>
+            <circle cx="127" cy="90" r="9" fill="#3A2418"/>
+            <circle cx="96" cy="87" r="3.2" fill="#fff"/>
+            <circle cx="130" cy="87" r="3.2" fill="#fff"/>
+            <path d="M96 128 Q110 140 124 128" fill="none" stroke="#3A2418" stroke-width="3.2" stroke-linecap="round"/>
+            <ellipse cx="60" cy="176" rx="13" ry="24" fill="#C56A2D"/>
+            <ellipse cx="160" cy="176" rx="13" ry="24" fill="#C56A2D"/>
+            <rect x="78" y="158" width="64" height="42" rx="8" fill="#0F7A6C"/>
+            <rect x="81" y="161" width="28" height="36" rx="5" fill="#FFF6E4"/>
+            <rect x="111" y="161" width="28" height="36" rx="5" fill="#E85D04"/>
+          </svg>
         </div>
-      </aside>
+        <aside class="daily-card" data-i18n-aria="dailyCardAria" aria-label="Today's practice target">
+          <span class="card-icon" aria-hidden="true"></span>
+          <h2 data-i18n="todayGoal">Today's Goal</h2>
+          <p data-i18n="todayGoalText">Read 1 story, spell 10 words, and celebrate every improvement.</p>
+          <div class="mini-stats">
+            <span><strong id="dailyWords">0</strong> <span data-i18n="dailyWordsLabel">words</span></span>
+            <span><strong id="dailyScore">0</strong> <span data-i18n="dailyScoreLabel">% score</span></span>
+          </div>
+        </aside>
+      </div>
     </section>
   </header>
 
@@ -68,19 +103,31 @@
       </div>
 
       <div class="practice-layout">
-        <article class="panel story-panel">
+        <article class="panel story-panel" id="storyPanel">
           <div class="panel-header">
             <div>
               <span class="tag" id="storyLevel">Level 1</span>
-              <h3 id="storyTitle">The Clever Fox</h3>
+              <h3 id="storyTitle">Kito the Meerkat</h3>
             </div>
             <button class="button small" id="newStoryButton" type="button" data-i18n="newStory">New Story</button>
           </div>
           <p class="story-text" id="storyText"></p>
-          <button class="button secondary" id="readAloudButton" type="button" data-i18n="readAloud">Read Aloud</button>
+          <div class="speech-row">
+            <button class="button secondary" id="readAloudButton" type="button" data-i18n="readAloud">Read Aloud</button>
+            <div class="speed-control" role="group" data-i18n-aria="speedAria" aria-label="Reading speed">
+              <button type="button" class="button small speed-down" data-i18n-aria="slower" aria-label="Slower">−</button>
+              <p class="speed-label"><span data-i18n="speedLabel">Speed</span>: <strong data-speed-value>Normal</strong></p>
+              <button type="button" class="button small speed-up" data-i18n-aria="faster" aria-label="Faster">+</button>
+            </div>
+          </div>
+          <label class="voice-picker">
+            <span data-i18n="voiceLabel">Voice</span>
+            <select class="voice-select" aria-label="Voice"></select>
+          </label>
+          <p class="voice-hint" data-voice-hint></p>
         </article>
 
-        <article class="panel">
+        <article class="panel quiz-panel">
           <h3 data-i18n="comprehension">Comprehension Check</h3>
           <p id="questionText"></p>
           <div id="answerOptions" class="answer-options"></div>
@@ -104,7 +151,17 @@
           <div class="spelling-controls">
             <button class="button secondary" id="speakWordButton" type="button" data-i18n="hearWord">Hear Word</button>
             <button class="button secondary" id="showHintButton" type="button" data-i18n="showHint">Show Hint</button>
+            <div class="speed-control" role="group" data-i18n-aria="speedAria" aria-label="Reading speed">
+              <button type="button" class="button small speed-down" data-i18n-aria="slower" aria-label="Slower">−</button>
+              <p class="speed-label"><span data-i18n="speedLabel">Speed</span>: <strong data-speed-value>Normal</strong></p>
+              <button type="button" class="button small speed-up" data-i18n-aria="faster" aria-label="Faster">+</button>
+            </div>
           </div>
+          <label class="voice-picker">
+            <span data-i18n="voiceLabel">Voice</span>
+            <select class="voice-select" aria-label="Voice"></select>
+          </label>
+          <p class="voice-hint" data-voice-hint></p>
           <label for="spellingInput" data-i18n="typeWord">Type the word</label>
           <div class="input-row">
             <input id="spellingInput" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" inputmode="text" type="text" data-i18n-placeholder="yourAnswer" placeholder="Your answer">
@@ -114,7 +171,7 @@
           <p class="feedback" id="spellingFeedback" role="status" aria-live="polite"></p>
         </article>
 
-        <article class="panel">
+        <article class="panel tips-panel">
           <h3 data-i18n="tipsTitle">Practice Tips</h3>
           <ul class="tips-list">
             <li data-i18n="tip1">Say the word slowly.</li>
