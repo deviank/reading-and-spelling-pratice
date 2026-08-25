@@ -926,7 +926,7 @@ function celebrate() {
   }
 
   celebrateLayer.innerHTML = "";
-  const colors = ["#F4C430", "#E85D04", "#0F7A6C", "#D6286E", "#2F9E6B", "#FFF6E4"];
+  const colors = ["#007AFF", "#34C759", "#AF52DE", "#FF9500", "#FF3B30", "#5AC8FA"];
 
   for (let i = 0; i < 20; i += 1) {
     const bit = document.createElement("span");
