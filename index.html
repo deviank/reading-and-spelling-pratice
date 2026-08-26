@@ -18,8 +18,8 @@
   <div class="pattern-band" aria-hidden="true"></div>
   <div id="celebrate" class="celebrate" aria-hidden="true"></div>
 
-  <header class="hero">
-    <nav class="topbar" data-i18n-aria="navAria" aria-label="Main navigation">
+  <nav class="topbar" data-i18n-aria="navAria" aria-label="Main navigation">
+    <div class="topbar-inner">
       <a class="brand" href="#top" data-i18n-aria="brandAria" aria-label="Reading and Spelling Buddy home">
         <span class="brand-mark" aria-hidden="true">Aa</span>
         <span data-i18n="brand">Reading Buddy</span>
@@ -32,12 +32,14 @@
           <a href="#progress" data-i18n="navProgress">Progress</a>
         </div>
         <div class="lang-switch" role="group" data-i18n-aria="langAria" aria-label="Language">
-          <button type="button" class="lang-button is-active" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" class="lang-button" data-lang="af" aria-pressed="false">AF</button>
+          <button type="button" class="lang-button is-active" data-lang="en" aria-pressed="true">English</button>
+          <button type="button" class="lang-button" data-lang="af" aria-pressed="false">Afrikaans</button>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
+  <header class="hero">
     <section id="top" class="hero-grid">
       <div>
         <p class="eyebrow" data-i18n="heroEyebrow">Daily practice for ages 8-10</p>
