@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=create-story-3">
 </head>
 <body>
   <div class="sunburst" aria-hidden="true"></div>
@@ -111,8 +111,26 @@
               <span class="tag" id="storyLevel">Level 1</span>
               <h3 id="storyTitle">Kito the Meerkat</h3>
             </div>
-            <button class="button secondary" id="newStoryButton" type="button" data-i18n="newStory">New Story</button>
+            <div class="story-actions">
+              <button class="button secondary" id="newStoryButton" type="button" data-i18n="newStory">New Story</button>
+              <button class="button primary" id="createStoryButton" type="button" data-i18n="createStory" aria-expanded="false" aria-controls="createStoryForm">Create Story</button>
+            </div>
           </div>
+          <form class="create-story-form" id="createStoryForm" hidden>
+            <p class="create-story-prompt" data-i18n="createStoryPrompt">Pick a type, then type your favourite.</p>
+            <div class="story-type-chips" role="group" data-i18n-aria="storyTypeAria" aria-label="Story type">
+              <button type="button" class="story-type-chip is-active" data-story-type="anything" aria-pressed="true" data-i18n="storyTypeAnything">Anything</button>
+              <button type="button" class="story-type-chip" data-story-type="celeb" aria-pressed="false" data-i18n="storyTypeCeleb">Celebrity</button>
+              <button type="button" class="story-type-chip" data-story-type="sports" aria-pressed="false" data-i18n="storyTypeSports">Sports star</button>
+              <button type="button" class="story-type-chip" data-story-type="animal" aria-pressed="false" data-i18n="storyTypeAnimal">Animal</button>
+            </div>
+            <label for="storyTopicInput" data-i18n="storyTopicLabel">What do you like?</label>
+            <div class="input-row">
+              <input id="storyTopicInput" type="text" maxlength="40" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="go" data-i18n-placeholder="storyTopicPlaceholder" placeholder="A celeb, sports star, animal, or anything">
+              <button class="button primary" id="makeStoryButton" type="submit" data-i18n="makeStory">Make my story</button>
+            </div>
+            <p class="create-story-error" id="createStoryError" role="status" aria-live="polite"></p>
+          </form>
           <p class="story-text" id="storyText"></p>
           <div class="speech-row">
             <button class="button secondary" id="readAloudButton" type="button" data-i18n="readAloud">Read Aloud</button>
@@ -239,6 +257,6 @@
     </a>
   </nav>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=create-story-3"></script>
 </body>
 </html>

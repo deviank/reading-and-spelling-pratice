@@ -52,7 +52,8 @@ a,
 input,
 .answer-option,
 .word-chip,
-.lang-button {
+.lang-button,
+.story-type-chip {
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(0, 122, 255, 0.16);
 }
@@ -238,7 +239,9 @@ input {
 .input-row,
 .speed-control,
 .voice-select,
-.brand {
+.brand,
+.story-actions,
+.create-story-form {
   min-width: 0;
   max-width: 100%;
 }
@@ -531,8 +534,18 @@ input:focus-visible,
   padding-right: 2.4rem;
 }
 
-#newStoryButton {
-  width: 100%;
+.story-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.story-actions .button {
+  flex: 1 1 140px;
+}
+
+#createStoryButton[aria-expanded="true"] {
+  box-shadow: inset 0 0 0 2px rgba(0, 122, 255, 0.35);
 }
 
 .tag {
@@ -574,6 +587,70 @@ input:focus-visible,
 
 .story-panel[data-mood="science"]::after {
   content: "🔬";
+}
+
+.story-panel[data-mood="star"]::after {
+  content: "⭐";
+}
+
+.story-panel[data-mood="rugby"]::after {
+  content: "🏉";
+}
+
+.story-panel[data-mood="sparkle"]::after {
+  content: "✨";
+}
+
+.create-story-form {
+  display: none;
+  gap: 12px;
+  margin: 0 0 18px;
+  padding: 14px;
+  background: var(--surface-strong);
+  border-radius: 16px;
+}
+
+.create-story-form.is-open,
+.create-story-form:not([hidden]) {
+  display: grid;
+}
+
+.create-story-prompt {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.story-type-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.story-type-chip {
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--surface);
+  cursor: pointer;
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.story-type-chip.is-active {
+  color: white;
+  background: var(--primary);
+}
+
+.create-story-error {
+  min-height: 1.2em;
+  margin: 0;
+  color: var(--danger);
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .story-text {
@@ -904,7 +981,8 @@ input {
   .hero-actions,
   .spelling-controls,
   .input-row,
-  .speech-row {
+  .speech-row,
+  .story-actions {
     flex-direction: column;
     align-items: stretch;
     padding-bottom: 8px;
@@ -914,9 +992,11 @@ input {
   .spelling-controls > .button,
   .speech-row > .button,
   .panel-header .button,
+  .story-actions .button,
   .input-row .button,
   .progress-section .button {
     width: 100%;
+    flex: none;
     min-height: 48px;
     box-shadow: none;
   }
